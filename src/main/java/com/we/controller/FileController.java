@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class MainController {
+public class FileController {
 
     @GetMapping("file")
     public String file() {
