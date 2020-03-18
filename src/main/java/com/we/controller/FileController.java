@@ -63,12 +63,14 @@ public class FileController {
     /**
      * 实现多文件上传
      */
-    /*public @ResponseBody String multifileUpload(@RequestParam("fileName")List<MultipartFile> files) */
     @RequestMapping("/multifileUpload")
     @ResponseBody
-    public String multifileUpload(HttpServletRequest request) {
+    public String multifileUpload(@RequestParam("fileName")List<MultipartFile> files) {
+    //@RequestMapping("/multifileUpload")
+    //@ResponseBody
+    //public String multifileUpload(HttpServletRequest request) {
 
-        List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("fileName");
+        //List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("fileName");
 
         if (files.isEmpty()) {
             return "false";
