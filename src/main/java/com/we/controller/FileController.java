@@ -20,7 +20,7 @@ public class FileController {
     }
 
     /**
-     *
+     * 单文件上传
      * @param file
      * @return
      */
