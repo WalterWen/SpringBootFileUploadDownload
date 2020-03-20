@@ -30,7 +30,8 @@ public class PhotographController {
 
     /**
      * 头像上传
-     * @param file
+     * @param op
+     * @param base64url
      * @return
      */
     @RequestMapping("/photoUpload")

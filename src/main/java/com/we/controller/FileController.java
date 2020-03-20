@@ -61,6 +61,8 @@ public class FileController {
 
     /**
      * 实现多文件上传
+     * @param files
+     * @return
      */
     @RequestMapping("/multifileUpload")
     @ResponseBody
@@ -102,7 +104,9 @@ public class FileController {
     }
 
     /**
-     *实现文件下载
+     * 实现文件检索
+     * @param model
+     * @return
      */
     @RequestMapping("/fileDownload")
     public String fileDownload(Model model) {
@@ -127,6 +131,13 @@ public class FileController {
         return "fileDownload";
     }
 
+    /**
+     * 文件下载
+     * @param downFileName
+     * @param response
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     @GetMapping("/download/{downFileName:.+}")
     public String downLoad(@PathVariable("downFileName") String downFileName, HttpServletResponse response)
             throws UnsupportedEncodingException {
