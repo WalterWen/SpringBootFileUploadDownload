@@ -40,9 +40,10 @@ public class PhotographController {
             return "false";
         }
         BASE64Decoder decoder = new BASE64Decoder();
+        String baseurl = base64url.replace("data:image/png;base64,", "");
         try {
             // Base64解码
-            byte[] b = decoder.decodeBuffer(base64url);
+            byte[] b = decoder.decodeBuffer(baseurl);
             for (int i = 0; i < b.length; ++i) {
                 if (b[i] < 0) {// 调整异常数据
                     b[i] += 256;
