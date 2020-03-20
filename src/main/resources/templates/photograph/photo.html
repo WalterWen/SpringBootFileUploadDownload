@@ -136,14 +136,13 @@
         var base64url = cas.toDataURL('image/png'); //转换为base64地址形式
         base64url=base64url.replace("\r","")
         $.post("/photograph/photoUpload", {op:"takePhoto",base64url:base64url }, function(data) {
-            var result=parseInt($.trim(data.result));
-            if(result==-1){
-                $.messager.show({title:"温馨提示",msg:"输入的信息不完整,确认后重新提交。",timeout:3000,showType:'slide'})
-            }else if(result>0){
-                $.messager.show({title:"成功提示",msg:"头像更新成功",timeout:3000,showType:'slide'})
+            if(data==-1){
+                alert("输入的信息不完整,确认后重新提交");
+            }else if(data>0){
+                alert("头像更新成功");
                 //$('#attendance_info').css('color','green').text("已提交");
             }else{
-                $.messager.alert("失败提示","头像更新失败，请稍后重试...",'error')
+                alert("头像更新失败，请稍后重试...");
             }
         }, "JSON");
         //关闭裁剪框

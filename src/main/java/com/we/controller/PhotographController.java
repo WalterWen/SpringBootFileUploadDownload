@@ -35,9 +35,9 @@ public class PhotographController {
      */
     @RequestMapping("/photoUpload")
     @ResponseBody
-    public String fileUpload(@RequestParam("op") String op, @RequestParam("base64url") String base64url) {
+    public int fileUpload(@RequestParam("op") String op, @RequestParam("base64url") String base64url) {
         if (!"takePhoto".equals(op)) {
-            return "false";
+            return -1;
         }
         BASE64Decoder decoder = new BASE64Decoder();
         String baseurl = base64url.replace("data:image/png;base64,", "");
@@ -55,9 +55,9 @@ public class PhotographController {
             out.flush();
             out.close();
 
-            return "true";
+            return 1;
         } catch (Exception e) {
-            return "false";
+            return 0;
         }
 
     }
