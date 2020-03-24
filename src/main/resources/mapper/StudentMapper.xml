@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.we.mapper.StudentMapper">
+
+    <resultMap type="com.we.pojo.Student" id="StudentResult">
+        <result property="stuid"    column="stuid"    />
+        <result property="stuclass"    column="stuclass"    />
+        <result property="stuname"    column="stuname"    />
+        <result property="stuage"    column="stuage"    />
+        <result property="stusex"    column="stusex"    />
+        <result property="stutel"    column="stutel"    />
+    </resultMap>
+
+    <sql id="selectStuVo">
+        select stuid, stuclass, stuname, stuage, stusex, stutel from student
+    </sql>
+
+    <select id="selectStuList" parameterType="com.we.pojo.Student" resultMap="StudentResult">
+        <include refid="selectStuVo"/>
+        <where>
+            <if test="stuid != null  and stuid != '' "> and stuid = #{stuid}</if>
+            <if test="stuclass != null  and stuclass != '' "> and stuclass = #{stuclass}</if>
+            <if test="stuname != null  and stuname != '' "> and stuname = #{stuname}</if>
+            <if test="stuage != null  and stuage != '' "> and stuage = #{stuage}</if>
+            <if test="stusex != null  and stusex != '' "> and stusex = #{stusex}</if>
+            <if test="stutel != null  and stutel != '' "> and stutel = #{stutel}</if>
+        </where>
+    </select>
+
+</mapper>

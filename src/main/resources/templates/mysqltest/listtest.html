@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>学生信息</title>
+</head>
+<body>
+<table>
+    <tr th:each="stus : ${stus}">
+        <td th:text="${stus.stuid}"></td>
+        <td th:text="${stus.stuclass}"></td>
+        <td th:text="${stus.stuname}"></td>
+        <td th:text="${stus.stuage}"></td>
+        <td th:text="${stus.stusex}"></td>
+        <td th:text="${stus.stutel}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
