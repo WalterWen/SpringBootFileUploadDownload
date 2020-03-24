@@ -128,7 +128,7 @@ public class FileController {
         }
         model.addAttribute("inputPath", inputPath);
         model.addAttribute("fileNames", files);
-        return "fileDownload";
+        return prefix + "/fileDownload";
     }
 
     /**
