@@ -18,4 +18,10 @@ public class StudentServiceImpl implements IStudentService {
     public List<Student> selectStuList() {
         return studentMapper.selectStuList();
     }
+
+    @Override
+    public int insertStuList(List<Student> list) {
+        int flag = studentMapper.insertStuList(list);
+        return flag;
+    }
 }

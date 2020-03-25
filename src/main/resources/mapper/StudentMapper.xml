@@ -29,4 +29,13 @@
         </where>
     </select>
 
+    <insert id="insertStuList">
+        insert into student
+        (stuid, stuclass, stuname, stuage, stusex, stutel)
+        values
+        <foreach collection="list" item="stulist" separator=",">
+            (#{stulist.stuid}, #{stulist.stuclass}, #{stulist.stuname}, #{stulist.stuage}, #{stulist.stusex}, #{stulist.stutel})
+        </foreach>
+    </insert>
+
 </mapper>

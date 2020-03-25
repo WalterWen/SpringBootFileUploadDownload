@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>导入导出</title>
+</head>
+<body>
+<a href="#" th:href="@{/exportExcel}">导出Excel</a><br/>
+<a href="#" th:href="@{/downloadExcel}">下载Excel</a>
+<form action="uploadExcel" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileName"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>

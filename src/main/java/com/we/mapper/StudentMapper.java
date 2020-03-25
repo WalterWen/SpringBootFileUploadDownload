@@ -9,4 +9,6 @@ import java.util.List;
 public interface StudentMapper {
 
     public List<Student> selectStuList();
+
+    public int insertStuList(List<Student> list);
 }

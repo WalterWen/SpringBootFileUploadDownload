@@ -7,4 +7,6 @@ import java.util.List;
 public interface IStudentService {
 
     public List<Student> selectStuList();
+
+    public int insertStuList(List<Student> list);
 }
