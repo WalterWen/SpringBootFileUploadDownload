@@ -5,19 +5,39 @@
     <title>学生信息</title>
     <link th:href="@{static/photograph/cropper.min.css}" rel="stylesheet"/>
     <link th:href="@{static/photograph/ImgCropping.css}" rel="stylesheet"/>
-    <link th:href="@{static/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
-    <link th:href="@{static/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
-    <link th:href="@{static/bootstrap/css/bootstrap-table.css}" rel="stylesheet"/>
+    <link th:href="@{static/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{static/css/font-awesome.min.css}" rel="stylesheet"/>
+    <!-- bootstrap-table 表格插件样式 -->
+    <link th:href="@{static/ajax/libs/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"/>
+    <link th:href="@{static/ajax/libs/bootstrap-treeview/bootstrap-treeview.css}" rel="stylesheet"/>
+    <link th:href="@{static/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{static/css/style.css}" rel="stylesheet"/>
 
-    <script th:src="@{static/photograph/jquery-1.11.3.js}"></script>
-    <script th:src="@{static/bootstrap/js/bootstrap.js}"></script>
-    <script th:src="@{static/photograph/cropper.min.js}"></script>
-    <script th:src="@{static/bootstrap/js/bootstrap-table.js}"></script>
-    <script th:src="@{static/bootstrap/js/bootstrap-table-zh-CN.js}"></script>
+    <script th:src="@{static/js/jquery.min.js}"></script>
+    <script th:src="@{static/js/bootstrap.min.js}"></script>
+    <!-- bootstrap-table 表格插件 -->
+    <script th:src="@{static/ajax/libs/bootstrap-table/bootstrap-table.min.js}"></script>
+    <script th:src="@{static/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script th:src="@{static/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js}"></script>
+    <script th:src="@{static/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js}"></script>
+    <script th:src="@{static/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js}"></script>
+
+    <!-- jquery-export 表格导出插件 -->
+    <script th:src="@{static/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js}"></script>
+    <script th:src="@{static/ajax/libs/bootstrap-table/extensions/export/tableExport.js}"></script>
+
+    <!-- select2下拉框插件 -->
+    <link th:href="@{static/ajax/libs/select2/select2.min.css}" rel="stylesheet"/>
+    <link th:href="@{static/ajax/libs/select2/select2-bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{static/ajax/libs/select2/select2.min.js}"></script>
+
+    <!-- bootstrap-select下拉框插件 -->
+    <link th:href="@{static/ajax/libs/bootstrap-select/bootstrap-select.css}" rel="stylesheet"/>
+    <script th:src="@{static/ajax/libs/bootstrap-select/bootstrap-select.js}"></script>
 </head>
 <body>
 <div style="margin: 100px 100px">
-    <table id="table"></table>
+    <table id="table" data-toggle="table" data-search="true"></table>
 </div>
 
 <script>
@@ -25,7 +45,11 @@
         url: '/list',        // 表格数据来源
         method: 'post',
         dataType: 'json',
+        striped: true,
         pagination: true,
+        showExport: true,
+        showColumns: true,  //是否显示所有的列
+        showRefresh: true,  //是否显示刷新按钮
         pageList: [10, 25, 50, 100],
         columns: [{
             field: 'stuid',
@@ -45,7 +69,8 @@
         },{
             field: 'stutel',
             title: '电话'
-        }]
+        }
+        ]
     });
 </script>
 </body>

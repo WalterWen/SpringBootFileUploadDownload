@@ -1,0 +1,6 @@
+.copyright_bg{background: url(../img/cr_bg.jpg) left top; background-repeat: no-repeat; width: 300px; min-height: 300px; border-radius: 5px; padding: 30px 20px 20px 20px; text-align: center; margin:0px; font-family: "Microsoft YaHei", 微软雅黑; }
+.copyright_box{ background: rgba(26,78,136,0.3); color: #ffffff; text-align: center; font-size: 12px; padding: 20px; margin-top: 20px;}
+.copyright_box p{margin: 0px; padding: 5px 0;}
+.copyright_box a{color: #ffffff; text-decoration:none; }
+.copyright_box a:hover{color: #0080c9;}
+.copyright_bg h2{font-size: 24px; font-weight: 600; margin: 0px; color: #0080c9;}
