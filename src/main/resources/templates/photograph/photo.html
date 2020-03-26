@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>基于cropper.js的图片裁剪</title>
-    <script type="text/javascript" src="static/photograph/jquery-1.11.3.js"></script>
-    <script type="text/javascript" src="static/photograph/cropper.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/photograph/cropper.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/photograph/ImgCropping.css" />
+    <link th:href="@{static/photograph/cropper.min.css}" rel="stylesheet"/>
+    <link th:href="@{static/photograph/ImgCropping.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap-4.4.1/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap-4.4.1/css/bootstrap-grid.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap-4.4.1/css/bootstrap-reboot.css}" rel="stylesheet"/>
+    <script th:src="@{static/photograph/jquery-1.11.3.js}"></script>
+    <script th:src="@{static/photograph/cropper.min.js}"></script>
+    <script th:src="@{static/bootstrap-4.4.1/js/bootstrap.js}"></script>
+    <script th:src="@{static/bootstrap-4.4.1/js/bootstrap.bundle.js}"></script>
 </head>
 <body>
 <button id="replaceImg" class="l-btn">更换图片</button>

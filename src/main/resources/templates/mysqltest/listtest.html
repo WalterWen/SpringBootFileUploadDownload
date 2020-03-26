@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8"/>
     <title>学生信息</title>
+    <link th:href="@{static/photograph/cropper.min.css}" rel="stylesheet"/>
+    <link th:href="@{static/photograph/ImgCropping.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{static/bootstrap/css/bootstrap-table.css}" rel="stylesheet"/>
+
+    <script th:src="@{static/photograph/jquery-1.11.3.js}"></script>
+    <script th:src="@{static/bootstrap/js/bootstrap.js}"></script>
+    <script th:src="@{static/photograph/cropper.min.js}"></script>
+    <script th:src="@{static/bootstrap/js/bootstrap-table.js}"></script>
+    <script th:src="@{static/bootstrap/js/bootstrap-table-zh-CN.js}"></script>
 </head>
 <body>
-<table>
-    <tr th:each="stus : ${stus}">
-        <td th:text="${stus.stuid}"></td>
-        <td th:text="${stus.stuclass}"></td>
-        <td th:text="${stus.stuname}"></td>
-        <td th:text="${stus.stuage}"></td>
-        <td th:text="${stus.stusex}"></td>
-        <td th:text="${stus.stutel}"></td>
-    </tr>
-</table>
+<div style="margin: 100px 100px">
+    <table id="table"></table>
+</div>
 
+<script>
+    $('#table').bootstrapTable({
+        url: '/list',        // 表格数据来源
+        method: 'post',
+        dataType: 'json',
+        pagination: true,
+        pageList: [10, 25, 50, 100],
+        columns: [{
+            field: 'stuid',
+            title: '学号'
+        }, {
+            field: 'stuclass',
+            title: '班级'
+        }, {
+            field: 'stuname',
+            title: '姓名'
+        },{
+            field: 'stuage',
+            title: '年龄'
+        },{
+            field: 'stusex',
+            title: '性别'
+        },{
+            field: 'stutel',
+            title: '电话'
+        }]
+    });
+</script>
 </body>
 </html>
