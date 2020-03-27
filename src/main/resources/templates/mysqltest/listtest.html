@@ -17,6 +17,8 @@
     <script th:src="@{static/js/bootstrap.min.js}"></script>
     <!-- 播放器 -->
     <script th:src="@{static/js/dplayer.min.js}"></script>
+    <!-- layer弹出层 -->
+    <script th:src="@{static/layer/layer.js}"></script>
     <!-- bootstrap-table 表格插件 -->
     <script th:src="@{static/ajax/libs/bootstrap-table/bootstrap-table.min.js}"></script>
     <script th:src="@{static/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
@@ -40,14 +42,48 @@
 
 </head>
 <body>
-<div style="margin: 100px 100px">
-    <table id="table" data-toggle="table" data-search="true"></table>
+
+<table id="table" data-toggle="table" data-search="true" ></table>
+<div style="position:relative; height: 100%;width: 150px;float: right;z-index:2;" onmouseover="view()" onmouseout="hide()">
+    <div  id="view" style="position:relative; height: 100%;width: 150px;float: right;z-index:2;display: none;" >
+        <button id="btn1" type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-leaf"></span> View
+        </button><br/>
+        <span class="glyphicon glyphicon-tags">标签</span>
+    </div>
 </div>
-<div style="margin: 500px">
+
+<div style="margin: 100px;float: right;">
     <div id="dplayer" style="width: 700px;height: 400px;"></div>
 </div>
 
+
 <script>
+    $(function() {
+
+    });
+
+    function view() {
+        $("#view").css('display','block');
+    }
+
+    function hide() {
+        $("#view").css('display','none');
+    }
+    //弹出一个提示层
+    $('#btn1').on('click', function(){
+        //边缘弹出
+        layer.open({
+            type: 1,
+            offset: 'r',
+            content: '<div style="padding: 20px 80px;">内容</div>',
+            shade: 0, //不显示遮罩
+            yes: function(){
+                layer.closeAll();
+            },
+        });
+    });
+
     $('#table').bootstrapTable({
         url: '/list',        // 表格数据来源
         method: 'post',
