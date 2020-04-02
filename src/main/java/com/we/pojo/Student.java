@@ -1,7 +1,6 @@
 package com.we.pojo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.alibaba.excel.metadata.BaseRowModel;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,12 +10,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Student extends BaseRowModel {
-    @ExcelProperty(value = "学号", index = 0)
+public class Student {
+    @ExcelProperty(value = {"基础信息", "学号"}, index = 0)
     private String stuid;
-    @ExcelProperty(value = "班级", index = 1)
+    @ExcelProperty(value = {"基础信息", "班级"}, index = 1)
     private String stuclass;
-    @ExcelProperty(value = "姓名", index = 2)
+    @ExcelProperty(value = {"基础信息", "姓名"}, index = 2)
     private String stuname;
     @ExcelProperty(value = "年龄", index = 3)
     private String stuage;

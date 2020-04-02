@@ -36,7 +36,7 @@ public class ExcelController {
      */
     @RequestMapping("/exportExcel")
     public String exportExcel() {
-        List stuList = studentService.selectStuList();
+        List<Student> stuList = studentService.selectStuList();
         String path = "F:/Desktop/";
         String fileName = path + "学生信息表格" + System.currentTimeMillis() + ".xlsx";
         EasyExcel.write(fileName, Student.class).sheet("学生信息表格").doWrite(stuList);
@@ -50,7 +50,7 @@ public class ExcelController {
      */
     @RequestMapping("/downloadExcel")
     public void downloadExcel(HttpServletResponse response) throws IOException {
-        List stuList = studentService.selectStuList();
+        List<Student> stuList = studentService.selectStuList();
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");
         // 这里URLEncoder.encode可以防止中文乱码
